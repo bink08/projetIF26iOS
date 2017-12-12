@@ -5,8 +5,8 @@
 //  Created by clément nivelet on 12/12/2017.
 //  Copyright © 2017 if26. All rights reserved.
 //
-
 import UIKit
+import SQLite
 
 class ViewController: UIViewController {
 
