@@ -17,6 +17,7 @@
 		351F65601FE0202B00B112FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351F655E1FE0202B00B112FD /* LaunchScreen.storyboard */; };
 		351F656B1FE0202B00B112FD /* projetIF26Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F656A1FE0202B00B112FD /* projetIF26Tests.swift */; };
 		351F65761FE0202B00B112FD /* projetIF26UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65751FE0202B00B112FD /* projetIF26UITests.swift */; };
+		35E81B021FE6ABD200932061 /* toDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E81B011FE6ABD200932061 /* toDo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		351F65711FE0202B00B112FD /* projetIF26UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projetIF26UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		351F65751FE0202B00B112FD /* projetIF26UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projetIF26UITests.swift; sourceTree = "<group>"; };
 		351F65771FE0202B00B112FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35E81B011FE6ABD200932061 /* toDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				351F655C1FE0202B00B112FD /* Assets.xcassets */,
 				351F655E1FE0202B00B112FD /* LaunchScreen.storyboard */,
 				351F65611FE0202B00B112FD /* Info.plist */,
+				35E81B011FE6ABD200932061 /* toDo.swift */,
 			);
 			path = projetIF26;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E81B021FE6ABD200932061 /* toDo.swift in Sources */,
 				351F65581FE0202B00B112FD /* ViewController.swift in Sources */,
 				351F65561FE0202B00B112FD /* AppDelegate.swift in Sources */,
 			);
