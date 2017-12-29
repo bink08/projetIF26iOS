@@ -19,8 +19,8 @@ class toDo: NSObject {
     
     
     init(id: Int) {
-        createTable()
-        let selfToDO = toDo.toDoTable.filter(Expression<Int>("id") == self.id)
+        toDo.createTable()
+        let selfToDO = toDo.toDoTable.filter(Expression<Int>("id") == id)
         self.id = id
         self.nom = "\(selfToDO[Expression<String>("nom")])"
         let dateFormater = DateFormatter()
@@ -28,18 +28,19 @@ class toDo: NSObject {
         self.detail = "\(selfToDO[Expression<String>("detail")])"
     }
     
-    class func Connection(){
+    class func Connecting(){
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask,appropriateFor: nil, create: true)
             let fileUrl = documentDirectory.appendingPathComponent("toDo").appendingPathExtension("sqlite3")
             let database = try Connection(fileUrl.path)
             toDo.database = database
+            print("Connected")
         } catch {
             print(error)
         }
     }
     
-    private func createTable() {
+    class func createTable() {
         let createTable = toDo.toDoTable.create { (table) in
             table.column(Expression<Int>("id"), primaryKey: true)
             table.column(Expression<String>("nom"))
@@ -54,7 +55,7 @@ class toDo: NSObject {
         }
     }
     
-    class func insertToDo(id: Int, nom: String, date: Date, detail: String) {
+    class func insertToDo(nom: String, date: Date, detail: String) {
         let nomTable = Expression<String>("nom")
         let dateTable = Expression<Date>("date")
         let detailTable = Expression<String>("detail")
