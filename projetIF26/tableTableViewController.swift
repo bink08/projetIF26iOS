@@ -11,6 +11,7 @@ import UIKit
 class tableTableViewController: UITableViewController {
 
     var toDos = [0]
+    let identifiantToDoCellule = "celluleToDo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,8 @@ class tableTableViewController: UITableViewController {
         toDo.Connecting()
         toDo.createTable()
         toDos = toDo.listToDo()
-
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,12 +37,23 @@ class tableTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return toDos.count
+    }
+    
+    override func  tableView(_ tableView: UITableView, cellForRowAt indexPath:   IndexPath)   ->   UITableViewCell{
+        let aToDo = toDo(id: indexPath.row)
+        let   cell = tableView.dequeueReusableCell(withIdentifier: identifiantToDoCellule, for: indexPath)
+        cell.textLabel?.text   =   "\(aToDo.nom)"
+        cell.detailTextLabel?.text   =   /*"\(aToDo.date) - \(aToDo.detail)"*/"\(aToDo.detail)"
+        return   cell
+    }
+    
+    override   func   tableView(_   tableView:   UITableView,   titleForHeaderInSection   section:   Int)   ->   String?   {          return   nil
     }
 
     @IBAction func addToDo() {
@@ -56,6 +69,7 @@ class tableTableViewController: UITableViewController {
             print   (details)
             toDo.insertToDo(nom: nom, date: Date(), detail: details)
             self.toDos = toDo.listToDo()
+            self.tableView.reloadData();
         }
         alert.addAction(action)
         present(alert,   animated:   true,   completion:   nil)

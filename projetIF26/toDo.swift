@@ -14,7 +14,7 @@ class toDo: NSObject {
     static let toDoTable = Table("toDo")
     var id: Int
     var nom: String
-    var date: Date
+    //var date: Date
     var detail: String
     
     
@@ -22,10 +22,20 @@ class toDo: NSObject {
         toDo.createTable()
         let selfToDO = toDo.toDoTable.filter(Expression<Int>("id") == id)
         self.id = id
-        self.nom = "\(selfToDO[Expression<String>("nom")])"
-        let dateFormater = DateFormatter()
-        self.date = dateFormater.date(from: "\(selfToDO[Expression<Date>("date")])")!
-        self.detail = "\(selfToDO[Expression<String>("detail")])"
+        self.nom = " "
+        self.detail = " "
+        do {
+            for aToDo in try toDo.database.prepare(selfToDO){
+                
+                self.nom = "\(try aToDo.get(Expression<String>("nom")))"
+                //print(self.nom)
+                /*let dateFormater = DateFormatter()
+                 self.date = dateFormater.date(from: "\(selfToDO[Expression<Date>("date")])")!*/
+                self.detail = "\(try aToDo.get(Expression<String>("detail")))"
+            }
+        } catch {
+            print(error)
+        }
     }
     
     class func Connecting(){
@@ -91,7 +101,7 @@ class toDo: NSObject {
             print(error)
         }
     }
-    
+    /*
     func setDate(date: Date){
         let selfToDO = toDo.toDoTable.filter(Expression<Int>("id") == self.id)
         let updateToDo = selfToDO.update(Expression<Date>("date") <- date)
@@ -101,7 +111,7 @@ class toDo: NSObject {
         } catch {
             print(error)
         }
-    }
+    }*/
     
     func setDetail(detail: String){
         let selfToDO = toDo.toDoTable.filter(Expression<Int>("id") == self.id)

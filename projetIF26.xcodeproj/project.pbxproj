@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		350825661FE04BB50037F491 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350825581FE04BAD0037F491 /* SQLite.framework */; };
 		350825671FE04BBA0037F491 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350825581FE04BAD0037F491 /* SQLite.framework */; };
 		350825681FE04BBA0037F491 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 350825581FE04BAD0037F491 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		351F65561FE0202B00B112FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65551FE0202B00B112FD /* AppDelegate.swift */; };
@@ -131,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				350825671FE04BBA0037F491 /* SQLite.framework in Frameworks */,
-				350825661FE04BB50037F491 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
