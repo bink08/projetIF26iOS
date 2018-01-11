@@ -55,6 +55,10 @@ class tableTableViewController: UITableViewController {
     
     override   func   tableView(_   tableView:   UITableView,   titleForHeaderInSection   section:   Int)   ->   String?   {          return   nil
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     @IBAction func addToDo() {
         print   ("Bouton insert")
@@ -75,6 +79,14 @@ class tableTableViewController: UITableViewController {
         present(alert,   animated:   true,   completion:   nil)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVeiw : ViewController = segue.destination as! ViewController
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)
+        destinationVeiw.idToDo = indexPath!.row
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
