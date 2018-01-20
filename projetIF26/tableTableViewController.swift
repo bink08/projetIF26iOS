@@ -73,7 +73,7 @@ class tableTableViewController: UITableViewController {
             print   (details)
             toDo.insertToDo(nom: nom, date: Date(), detail: details)
             self.toDos = toDo.listToDo()
-            self.tableView.reloadData();
+            self.tableView.reloadData()
         }
         alert.addAction(action)
         present(alert,   animated:   true,   completion:   nil)
